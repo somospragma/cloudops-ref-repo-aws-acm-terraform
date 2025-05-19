@@ -285,8 +285,6 @@ Para casos donde se desea que Terraform espere automáticamente a que se complet
 
 ## Seguridad y Cumplimiento
 
-## Seguridad y Cumplimiento
-
 ### Consideraciones de seguridad
 
 - **Algoritmos de clave**: RSA_2048 es el mínimo recomendado para entornos de producción. Para mayor seguridad, considere usar RSA_4096 o algoritmos ECDSA (EC_prime256v1, EC_secp384r1).
