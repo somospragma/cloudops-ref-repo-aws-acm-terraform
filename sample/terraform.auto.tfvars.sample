@@ -1,0 +1,85 @@
+# Configuración general
+###########################################
+# Variables Globales
+###########################################
+
+aws_region  = "us-east-1"
+profile     = "default"
+client      = "pragma"
+project     = "api"
+environment = "dev"
+
+# Etiquetas adicionales
+common_tags = {
+  environment   = "dev"
+  project       = "dataplatform"
+  owner         = "cloudops"
+  area          = "infrastructure"
+  provisioned   = "terraform"
+  datatype      = "operational"
+}
+
+###########################################
+# Variables Modulo ACM
+###########################################
+certificates_config = {
+  # Escenario 1: Validación DNS sin espera (recomendado)
+  "portal" = {
+    domain_name               = "portal.example.com"
+    subject_alternative_names = []
+    validation_method         = "DNS"
+    key_algorithm             = "EC_prime256v1"
+    # No se especifica wait_for_validation (por defecto es false)
+    # Terraform creará el certificado y continuará sin esperar validación
+    additional_tags = {
+      application = "customer-portal"
+    }
+  },
+  
+  # Escenario 2: Validación por DNS (recomendado)
+  "web" = {
+    domain_name               = "www.example.com"
+    subject_alternative_names = ["example.com"]
+    validation_method         = "DNS"
+    key_algorithm             = "EC_prime256v1"  # ECDSA para mejor rendimiento
+    additional_tags = {
+      application = "frontend"
+    }
+  }
+  
+  # Estos escenarios son Opcionales y debe validar la forma de Validacion (wait_for_validation)
+  # Escenario 3: Validación DNS con espera automática (avanzado)
+  # "api" = {
+  #   domain_name               = "api.example.com"
+  #   subject_alternative_names = ["api-dev.example.com", "api-test.example.com"]
+  #   validation_method         = "DNS"
+  #   key_algorithm             = "RSA_2048"
+  #   wait_for_validation       = true
+  #   # No se especifica validation_record_fqdns
+  #   # Terraform esperará indefinidamente hasta que AWS detecte que los registros DNS han sido validados
+  #   additional_tags = {
+  #     application = "api-gateway"
+  #   }
+  # },
+  
+  # Escenario 4: Validación DNS con espera específica (avanzado)
+  # NOTA: Este escenario requiere un proceso de dos pasos
+  # 1. Primero crear el certificado sin esperar validación
+  # 2. Obtener los valores de validación y crear los registros DNS
+  # 3. Actualizar esta configuración con los FQDNs correctos
+  # "admin" = {
+  #   domain_name               = "admin.example.com"
+  #   subject_alternative_names = ["admin-dev.example.com"]
+  #   validation_method         = "DNS"
+  #   key_algorithm             = "RSA_2048"
+  #   wait_for_validation       = true
+  #   # Estos valores son EJEMPLOS y deben reemplazarse con los valores reales proporcionados por AWS
+  #   validation_record_fqdns   = [
+  #     "_a79865eb4cd1fd251e19a1b347d3d8f1.admin.example.com.",
+  #     "_a79865eb4cd1fd251e19a1b347d3d8f1.admin-dev.example.com."
+  #   ]
+  #   additional_tags = {
+  #     application = "admin-panel"
+  #   }
+  # }
+}

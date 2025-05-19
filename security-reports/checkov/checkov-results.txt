@@ -1,0 +1,54 @@
+
+
+       _               _
+   ___| |__   ___  ___| | _______   __
+  / __| '_ \ / _ \/ __| |/ / _ \ \ / /
+ | (__| | | |  __/ (__|   < (_) \ V /
+  \___|_| |_|\___|\___|_|\_\___/ \_/
+
+By Prisma Cloud | version: 3.2.352 
+Update available 3.2.352 -> 3.2.426
+Run pip3 install -U checkov to update 
+
+
+terraform_plan scan results:
+
+Passed checks: 9, Failed checks: 0, Skipped checks: 0
+
+Check: CKV_AWS_41: "Ensure no hard coded AWS access key and secret key exists in provider"
+	PASSED for resource: aws.default
+	File: /tfplan.json:0-1
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/secrets-policies/bc-aws-secrets-5
+Check: CKV_AWS_234: "Verify logging preference for ACM certificates"
+	PASSED for resource: module.acm.aws_acm_certificate.certificate["admin"]
+	File: /tfplan.json:0-0
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-aws-acm-certificates-has-logging-preference
+Check: CKV_AWS_234: "Verify logging preference for ACM certificates"
+	PASSED for resource: module.acm.aws_acm_certificate.certificate["api"]
+	File: /tfplan.json:0-0
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-aws-acm-certificates-has-logging-preference
+Check: CKV_AWS_234: "Verify logging preference for ACM certificates"
+	PASSED for resource: module.acm.aws_acm_certificate.certificate["portal"]
+	File: /tfplan.json:0-0
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-aws-acm-certificates-has-logging-preference
+Check: CKV_AWS_234: "Verify logging preference for ACM certificates"
+	PASSED for resource: module.acm.aws_acm_certificate.certificate["web"]
+	File: /tfplan.json:0-0
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-aws-acm-certificates-has-logging-preference
+Check: CKV2_AWS_71: "Ensure AWS ACM Certificate domain name does not include wildcards"
+	PASSED for resource: module.acm.aws_acm_certificate.certificate["admin"]
+	File: /tfplan.json:0-0
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/bc-aws-2-71
+Check: CKV2_AWS_71: "Ensure AWS ACM Certificate domain name does not include wildcards"
+	PASSED for resource: module.acm.aws_acm_certificate.certificate["api"]
+	File: /tfplan.json:0-0
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/bc-aws-2-71
+Check: CKV2_AWS_71: "Ensure AWS ACM Certificate domain name does not include wildcards"
+	PASSED for resource: module.acm.aws_acm_certificate.certificate["portal"]
+	File: /tfplan.json:0-0
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/bc-aws-2-71
+Check: CKV2_AWS_71: "Ensure AWS ACM Certificate domain name does not include wildcards"
+	PASSED for resource: module.acm.aws_acm_certificate.certificate["web"]
+	File: /tfplan.json:0-0
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/bc-aws-2-71
+
