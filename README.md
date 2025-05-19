@@ -10,6 +10,19 @@ Consulta CHANGELOG.md para la lista de cambios de cada versión. *Recomendamos e
 
 ![Diagrama de Arquitectura](./CloudOps-IaC-AWS-ACM.png)
 
+El diagrama muestra la integración de AWS Certificate Manager (ACM) con diversos servicios de AWS. Aunque en la ilustración se destaca la integración con API Gateway, es importante señalar que los certificados gestionados por ACM pueden utilizarse con múltiples servicios de AWS, incluyendo:
+
+- Amazon CloudFront
+- Elastic Load Balancing (ALB, NLB)
+- Amazon API Gateway
+- AWS Amplify
+- Amazon OpenSearch Service
+- Amazon CloudFront Functions
+- AWS Elastic Beanstalk
+- AWS App Runner
+
+Esta flexibilidad permite implementar certificados SSL/TLS en diferentes capas de la arquitectura, asegurando comunicaciones cifradas en toda la infraestructura de AWS. Los certificados son gestionados y renovados automáticamente por AWS, eliminando la necesidad de mantenimiento manual.
+
 ## Características
 
 - ✅ Creación y gestión de múltiples certificados ACM usando mapas de objetos
