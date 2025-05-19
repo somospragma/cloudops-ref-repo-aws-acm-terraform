@@ -6,6 +6,10 @@ Este módulo facilita la creación y gestión de certificados SSL/TLS en AWS Cer
 
 Consulta CHANGELOG.md para la lista de cambios de cada versión. *Recomendamos encarecidamente que en tu código fijes la versión exacta que estás utilizando para que tu infraestructura permanezca estable y actualices las versiones de manera sistemática para evitar sorpresas.*
 
+## Diseño AWS ACM
+
+![Diagrama de Arquitectura](./CloudOps-IaC-AWS-ACM.png)
+
 ## Características
 
 - ✅ Creación y gestión de múltiples certificados ACM usando mapas de objetos
